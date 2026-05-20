@@ -26,8 +26,10 @@
                     <td>{{std.email}}</td>
                     <td>{{std.contact}}</td>
                     <td>{{std.isActive? 'Yes': 'No'}}</td>
+                 
                     <td><button class="btn btn-outline-primary" (click)="onEditTodo(std)">Edit</button></td>
-                    <td><button class="btn btn-outline-danger">Remove</button></td>
+                    <td><button class="btn btn-outline-danger" (click)="onRemoveStudent(std.stdId)">Remove</button></td>
+                     
                 </tr>
             </tbody>
         </table>

@@ -9,8 +9,10 @@ import {
   SimpleChanges,
   ViewChild,
 } from '@angular/core';
+
+
+import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { Istd } from '../../models/std';
-import { UpperCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-std-form',
@@ -19,6 +21,9 @@ import { UpperCasePipe } from '@angular/common';
 })
 export class StdFormComponent implements OnInit, OnChanges {
   @Input() editObj!: Istd;
+
+
+  @Output()eventaddstudent:EventEmitter<Istd>=new EventEmitter<Istd>()
 
   isInEditMode: boolean = false;
 
@@ -55,7 +60,24 @@ export class StdFormComponent implements OnInit, OnChanges {
     };
 
     this.emitUpdatedObj.emit(UPDATED_OBJ);
+  }
 
+  addstudent(){
+    let new_student:Istd={
+      fname:this.fname.nativeElement.value,
+      lname:this.lname.nativeElement.value,
+      email:this.email.nativeElement.value,
+      contact:this.contact.nativeElement.value,
+      isActive:this.isActive.nativeElement.value==='true' ? true : false,
+      stdId:Date.now().toString()
+      
+    }
+    this.eventaddstudent.emit(new_student)
+   this.fname.nativeElement.value=''
+    this.lname.nativeElement.value=''
+    this.email.nativeElement.value=''
+    this.contact.nativeElement.value=''
+   this.isActive.nativeElement.value==='true'
 
   }
 }

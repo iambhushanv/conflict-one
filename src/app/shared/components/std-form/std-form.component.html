@@ -24,8 +24,11 @@
             <option value="false">No</option>
           </select>
         </div>
-        <button *ngIf="!isInEditMode"  class="btn btn-outline-danger btn-block">Add Stuents</button>
+        <button *ngIf="!isInEditMode"  class="btn btn-outline-danger btn-block" (click)="addstudent()">Add Stuents</button>
          <button  *ngIf="isInEditMode" class="btn btn-outline-warning btn-block" (click)="onUpdatestd()">Update Stuents</button>
-    </div>
+          
+        </div>
+        
+  
 </div>
 

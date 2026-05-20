@@ -4,12 +4,15 @@
     <div class="col-md-4">
         <app-std-form 
         [editObj]="editObjToPatch"
-        (emitUpdatedObj)="getUpdatedObj($event)"></app-std-form>
+        (emitUpdatedObj)="getUpdatedObj($event)"
+        (eventaddstudent)="onaddstudent($event)"></app-std-form>
+       
     </div>
     <div class="col-md-8">
         <app-std-table 
         [getstdArr]="stdsArr"
         (emiteditObj)="getEditObj($event)"
+        (emitRemoveId)="getRemovedId($event)"
         ></app-std-table>
     </div>
 </div>

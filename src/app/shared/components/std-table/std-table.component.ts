@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+
+import { Component, EventEmitter, Input, OnInit , Output} from '@angular/core';
 import { Istd } from '../../models/std';
 
 @Component({
@@ -7,6 +8,8 @@ import { Istd } from '../../models/std';
   styleUrls: ['./std-table.component.scss']
 })
 export class StdTableComponent implements OnInit {
+  @Output() emitRemoveId: EventEmitter<string>= new EventEmitter<string>()
+  
   @Input() getstdArr !: Array<Istd>
 
   @Output() emiteditObj : EventEmitter<Istd> = new EventEmitter<Istd>() 
@@ -21,4 +24,11 @@ export class StdTableComponent implements OnInit {
 
   }
 
+onRemoveStudent(studId:string){
+  this.emitRemoveId.emit(studId);
+  
 }
+}
+ 
+
+   
