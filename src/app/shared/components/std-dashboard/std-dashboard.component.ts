@@ -46,7 +46,12 @@ export class StdDashboardComponent implements OnInit {
       isActive: true
     }
   ];
+  getRemovedId(stuId:string){
+
+  let getIndex=this.stdsArr.findIndex(s => (s.stdId===stuId));
+  this.stdsArr.splice(getIndex,1)
+    
 }
 
-
+}
 
