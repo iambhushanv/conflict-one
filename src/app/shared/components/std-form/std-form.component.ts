@@ -54,7 +54,8 @@ export class StdFormComponent implements OnInit, OnChanges {
   }
 
   addstudent(){
-    let new_student:Istd={
+   if(this.fname.nativeElement.value.length >0 ){
+     let new_student:Istd={
       fname:this.fname.nativeElement.value,
       lname:this.lname.nativeElement.value,
       email:this.email.nativeElement.value,
@@ -70,5 +71,7 @@ export class StdFormComponent implements OnInit, OnChanges {
     this.contact.nativeElement.value=''
    this.isActive.nativeElement.value==='true'
 
+
+   }
   }
 }
