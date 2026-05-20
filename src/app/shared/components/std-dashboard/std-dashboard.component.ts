@@ -46,6 +46,11 @@ export class StdDashboardComponent implements OnInit {
       isActive: true
     }
   ];
+
+
+  onaddstudent(addstd:Istd){
+    this.stdsArr.push(addstd)
+  }
 }
 
 
