@@ -2,11 +2,14 @@
 
 <div class="row">
     <div class="col-md-4">
-        <app-std-form></app-std-form>
+        <app-std-form 
+        [editObj]="editObjToPatch"
+        (emitUpdatedObj)="getUpdatedObj($event)"></app-std-form>
     </div>
     <div class="col-md-8">
         <app-std-table 
         [getstdArr]="stdsArr"
+        (emiteditObj)="getEditObj($event)"
         ></app-std-table>
     </div>
 </div>
