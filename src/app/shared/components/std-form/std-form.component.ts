@@ -1,8 +1,10 @@
 
 
 
-import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild, Input,   SimpleChanges,
-  OnChanges, } from '@angular/core';
+import {
+  Component, ElementRef, EventEmitter, OnInit, Output, ViewChild, Input, SimpleChanges,
+  OnChanges,
+} from '@angular/core';
 import { Istd } from '../../models/std';
 
 @Component({
@@ -14,7 +16,7 @@ export class StdFormComponent implements OnInit, OnChanges {
   @Input() editObj!: Istd;
 
 
-  @Output()eventaddstudent:EventEmitter<Istd>=new EventEmitter<Istd>()
+  @Output() eventaddstudent: EventEmitter<Istd> = new EventEmitter<Istd>()
 
   isInEditMode: boolean = false;
 
@@ -25,10 +27,10 @@ export class StdFormComponent implements OnInit, OnChanges {
 
   @ViewChild('isActive') isActive!: ElementRef;
 
-  @Output() emitUpdatedObj : EventEmitter<Istd> = new EventEmitter<Istd>()
+  @Output() emitUpdatedObj: EventEmitter<Istd> = new EventEmitter<Istd>()
 
-  constructor() {}
-  ngOnInit(): void {}
+  constructor() { }
+  ngOnInit(): void { }
   ngOnChanges(changes: SimpleChanges): void {
     if (!!changes['editObj'].currentValue) {
       this.isInEditMode = true;
@@ -41,17 +43,34 @@ export class StdFormComponent implements OnInit, OnChanges {
   }
 
   onUpdatestd() {
-    let UPDATED_OBJ = {
-      fname: this.fname.nativeElement.value,
-      lname: this.lname.nativeElement.value,
-      email: this.email.nativeElement.value,
-      contact: this.contact.nativeElement.value,
-      stdId: this.editObj.stdId,
-      isActive: this.isActive.nativeElement.value === 'true' ? true : false,
-    };
 
-    this.emitUpdatedObj.emit(UPDATED_OBJ);
+    let val1: string = this.fname.nativeElement.value;
+    let val2: string = this.lname.nativeElement.value;
+    let val3: string = this.email.nativeElement.value;
+    let val4: string = this.contact.nativeElement.value;
+    if (val1.length > 0 && val2.length > 0 && val3.length && val4.length > 0) {
+      let UPDATED_OBJ = {
+        fname: this.fname.nativeElement.value,
+        lname: this.lname.nativeElement.value,
+        email: this.email.nativeElement.value,
+        contact: this.contact.nativeElement.value,
+        stdId: this.editObj.stdId,
+        isActive: this.isActive.nativeElement.value === 'true' ? true : false,
+      };
+
+      this.emitUpdatedObj.emit(UPDATED_OBJ);
+          this.fname.nativeElement.value = ''
+    this.lname.nativeElement.value = ''
+    this.email.nativeElement.value = ''
+    this.contact.nativeElement.value = ''
+    this.isActive.nativeElement.value === 'true'
+    this.isInEditMode= false
+
+    }
   }
+
+
+
 
   addstudent(){
    if(this.fname.nativeElement.value.length >0 ){
@@ -65,13 +84,15 @@ export class StdFormComponent implements OnInit, OnChanges {
       
     }
     this.eventaddstudent.emit(new_student)
-   this.fname.nativeElement.value=''
-    this.lname.nativeElement.value=''
-    this.email.nativeElement.value=''
-    this.contact.nativeElement.value=''
-   this.isActive.nativeElement.value==='true'
+    this.fname.nativeElement.value = ''
+    this.lname.nativeElement.value = ''
+    this.email.nativeElement.value = ''
+    this.contact.nativeElement.value = ''
+    this.isActive.nativeElement.value === 'true'
+   
 
 
    }
-  }
+  
 }
+  }
