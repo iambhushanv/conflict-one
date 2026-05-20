@@ -59,21 +59,29 @@ export class StdFormComponent implements OnInit, OnChanges {
       };
 
       this.emitUpdatedObj.emit(UPDATED_OBJ);
+          this.fname.nativeElement.value = ''
+    this.lname.nativeElement.value = ''
+    this.email.nativeElement.value = ''
+    this.contact.nativeElement.value = ''
+    this.isActive.nativeElement.value === 'true'
+    this.isInEditMode= false
 
     }
-
-
   }
 
-  addstudent() {
-    let new_student: Istd = {
-      fname: this.fname.nativeElement.value,
-      lname: this.lname.nativeElement.value,
-      email: this.email.nativeElement.value,
-      contact: this.contact.nativeElement.value,
-      isActive: this.isActive.nativeElement.value === 'true' ? true : false,
-      stdId: Date.now().toString()
 
+
+
+  addstudent(){
+   if(this.fname.nativeElement.value.length >0 ){
+     let new_student:Istd={
+      fname:this.fname.nativeElement.value,
+      lname:this.lname.nativeElement.value,
+      email:this.email.nativeElement.value,
+      contact:this.contact.nativeElement.value,
+      isActive:this.isActive.nativeElement.value==='true' ? true : false,
+      stdId:Date.now().toString()
+      
     }
     this.eventaddstudent.emit(new_student)
     this.fname.nativeElement.value = ''
@@ -81,7 +89,10 @@ export class StdFormComponent implements OnInit, OnChanges {
     this.email.nativeElement.value = ''
     this.contact.nativeElement.value = ''
     this.isActive.nativeElement.value === 'true'
-    this.isInEditMode= false
+   
 
-  }
+
+   }
+  
 }
+  }

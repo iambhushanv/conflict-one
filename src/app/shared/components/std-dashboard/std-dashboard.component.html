@@ -10,9 +10,7 @@
     </div>
     <div class="col-md-8">
         <app-std-table 
-        [getstdArr]="stdsArr"
-        (emiteditObj)="getEditObj($event)"
-        (emitRemoveId)="getRemovedId($event)"
+        [getstdArr]="stdsArr"  (emiteditObj)="getEditObj($event)" (emitRemoveId)="getRemovedId($event)"
         ></app-std-table>
     </div>
 </div>
