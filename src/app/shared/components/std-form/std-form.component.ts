@@ -1,17 +1,8 @@
-import {
-  Component,
-  ElementRef,
-  EventEmitter,
-  Input,
-  OnChanges,
-  OnInit,
-  Output,
-  SimpleChanges,
-  ViewChild,
-} from '@angular/core';
 
 
-import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+
+import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild, Input,   SimpleChanges,
+  OnChanges, } from '@angular/core';
 import { Istd } from '../../models/std';
 
 @Component({
