@@ -8,6 +8,8 @@ import { Istd } from '../../models/std';
 })
 export class StdDashboardComponent implements OnInit {
 
+  editObjToPatch !: Istd;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -46,6 +48,16 @@ export class StdDashboardComponent implements OnInit {
       isActive: true
     }
   ];
+
+  getEditObj(editObj : Istd){
+    this.editObjToPatch = editObj;
+
+  }
+  getUpdatedObj(updatedObj : Istd){
+    let GET_INDEX = this.stdsArr.findIndex(s => s.stdId === updatedObj.stdId);
+    this.stdsArr[GET_INDEX] = updatedObj;
+
+  }
   
   
     onaddstudent(addstd:Istd){

@@ -1,3 +1,4 @@
+
 import { Component, EventEmitter, Input, OnInit , Output} from '@angular/core';
 import { Istd } from '../../models/std';
 
@@ -10,10 +11,19 @@ export class StdTableComponent implements OnInit {
   @Output() emitRemoveId: EventEmitter<string>= new EventEmitter<string>()
   
   @Input() getstdArr !: Array<Istd>
+
+  @Output() emiteditObj : EventEmitter<Istd> = new EventEmitter<Istd>() 
   constructor() { }
 
   ngOnInit(): void {
   }
+
+  onEditTodo(editObj : Istd){
+   this.emiteditObj.emit(editObj)
+  
+
+  }
+
 onRemoveStudent(studId:string){
   this.emitRemoveId.emit(studId);
   
