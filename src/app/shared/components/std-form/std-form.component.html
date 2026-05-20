@@ -3,25 +3,31 @@
     <div class="card-body">
         <div class="form-group">
             <label for="fname">First Name</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" #fname>
         </div>
          <div class="form-group">
             <label for="lname">Last Name</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" #lname>
         </div>
          <div class="form-group">
             <label for="email">Email</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" #email>
         </div>
          <div class="form-group">
             <label for="fname">Contact</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" #contact>
         </div>
          <div class="form-group">
             <label for="fname">Is Active</label>
-            <input type="text" class="form-control">
+            <select type="text" class="form-control" #isActive>
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+
+            </select>
         </div>
-        <button class="btn btn-outline-danger btn-block">Add Stuents</button>
+        <button class="btn btn-outline-danger btn-block" *ngIf="!isInEditmode" (click)="addstudent()">Add Stuents</button>
+        <button class="btn btn-outline-danger btn-block" *ngIf="isInEditmode" >update</button>
+
     </div>
 </div>
 
